@@ -15,9 +15,7 @@ var Enemy = function(x, y, speed) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-   // this.sprite = 'images/enemy-bug.png';
-    //this.x = 5;
-    //this.y = 50;
+   
 };
 
 // Update the enemy's position, required method for game
@@ -27,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    if(this.x > 400) {
+    if(this.x > 550) {
 		this.x = -125;
 		this.speed = 165 + Math.floor(Math.random() * 250);
 	};
@@ -65,16 +63,12 @@ var Player = function(x, y, speed) {
     this.speed = speed;
     this.sprite = 'images/char-horn-girl.png';
     
-    
-    //this.sprite = 'images/char-boy.png';
-    //this.x = 200;
-    //this.y = 350;
 };
 
 Player.prototype.update = function() {
    // Make player stay on canvas
-   if(this.y > 380) {
-       this.y = 380;
+   if(this.y > 590) {
+       this.y = 490;
    } 
 
    if(this.x > 400) {
@@ -88,11 +82,11 @@ Player.prototype.update = function() {
    //One point added to score when player reaches top of canvas
    if(this.y < 0) {
        this.x = 200;
-       this.y = 380;
+       this.y = 400;
        score++;
        document.getElementById('score').innerHTML = score;
-       if(score >= 15) {
-           alert("You reached 15 points! Keep going to see if you can get more!");
+       if(score >= 10) {
+           alert("You reached 10 points! Keep going to see if you can do it again!");
            document.getElementById('score').innerHTML = "0";
        }
    }
@@ -121,20 +115,20 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-//let player = new Player();
+
 Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
         case "up":
-          this.y -= this.speed + 50;
+          this.y -= this.speed + 40;
           break;
         case "down":
-          this.y += this.speed + 50;
+          this.y += this.speed + 40;
           break;
         case "left":
-          this.x -= this.speed + 50;
+          this.x -= this.speed + 40;
           break;
         case "right":
-          this.x += this.speed + 50;
+          this.x += this.speed + 40;
           break;
       
      }
