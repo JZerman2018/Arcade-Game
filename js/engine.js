@@ -78,10 +78,18 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        //updateEntities(dt);
-        // checkCollisions();
+        updateEntities(dt);
+        //checkCollisions();
     }
 
+   /* function checkCollisions() {
+        allEnemies.forEach(enemy => {
+            if(enemy.checkCollisions(player) || player.checkCollisions(enemy)) {
+                player.y = 5;
+                player.x = 2;
+            }
+        });
+    }*/
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
@@ -138,7 +146,7 @@ var Engine = (function(global) {
             }
         }
 
-        //renderEntities();
+        renderEntities();
     }
 
     /* This function is called by the render function and is called on each game
@@ -173,7 +181,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-horn-girl.png'
     ]);
     Resources.onReady(init);
 
