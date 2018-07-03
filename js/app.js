@@ -2,20 +2,23 @@
 let score = 0;
 document.getElementById('score').innerHTML = score;
 
+// Instruction Modal
+$(document).ready(function() {
+    $('#beginGame').modal('show');
+});
+
+/*
+$(document).ready(function() {
+    $('#popupModal').modal('fade');
+});*/
 
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y;
-    this.speed = speed;
-    this.sprite = 'images/enemy-bug.png';
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-   
+    this.speed = speed; //speed of the enemies
+    this.sprite = 'images/enemy-bug.png'; // image/sprite of the enemies  
 };
 
 // Update the enemy's position, required method for game
@@ -28,9 +31,9 @@ Enemy.prototype.update = function(dt) {
     if(this.x > 550) {
 		this.x = -125;
 		this.speed = 165 + Math.floor(Math.random() * 250);
-	};
+	}
 	
-	//collision checking
+	//Check for collisions
 	if (player.x < this.x + 50 &&
 	player.x + 40 > this. x &&
 	player.y < this.y + 35 &&
@@ -41,13 +44,6 @@ Enemy.prototype.update = function(dt) {
     document.getElementById('score').innerHTML = score;
     }
 };
-
-
-// from above function
-    //this.x += 1;
-    //if(this.x > 500) {
-        //this.x = 0;
-
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -61,14 +57,15 @@ var Player = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    this.sprite = 'images/char-horn-girl.png';
-    
+    this.sprite = 'images/char-princess-girl.png';
+   
+
 };
 
 Player.prototype.update = function() {
    // Make player stay on canvas
-   if(this.y > 590) {
-       this.y = 490;
+   if(this.y > 400) {
+       this.y = 400;
    } 
 
    if(this.x > 400) {
@@ -77,49 +74,47 @@ Player.prototype.update = function() {
 
    if(this.x < 0) {
        this.x = 0;
-   }
+   };
 
+   let popupModal = document.querySelector('.popupModal');
+   let popupText = document.querySelector('.popupText');
    //One point added to score when player reaches top of canvas
+   //let popup = document.querySelector('.popup');
    if(this.y < 0) {
        this.x = 200;
        this.y = 400;
        score++;
        document.getElementById('score').innerHTML = score;
-       if(score >= 10) {
-           alert("You reached 10 points! Keep going to see if you can do it again!");
+      if(score >= 10) {
+        bootbox.alert({
+            message: "Congratulations! You collected 10 hearts and helped the Princess spread love. Can you do it again?",
+            className: 'bb-alternate-modal',
+        });        
            document.getElementById('score').innerHTML = "0";
-       }
+        
+      }     
    }
 };
-    
-    
-    /*if(this.scoreTotal === 10) {
-        $("#winModal").modal('show');
-        this.scoreTotal = 0;
-        setTimeout(() => {
-            this.x = 200;
-            this.y = 350;
-        }, 1000);
-    };
-};*/
+/*
+//let close = document.querySelector('.close');
+$('.close').on('click', (function() {
+    $('.popupModal').hide();
+   
+}));*/
+ 
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        //display score
-        //$("#score").html(this.scoreTotal);
+        
 };
 
-//Player.prototype.update = function(dt) {
-//};
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
+// Movement around the board with arrow keys
 Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
         case "up":
-          this.y -= this.speed + 40;
+          this.y -= this.speed + 30;
           break;
         case "down":
           this.y += this.speed + 40;
@@ -135,8 +130,8 @@ Player.prototype.handleInput = function(keyPress) {
      
 };
 
-//new player
-let player = new Player(200, 400, 50);
+//new player variable
+let player = new Player(200, 400, 60);
 
 //create the array for enemies
 //let allEnemies = [...Array(3)].map((_,i) => new Enemy(0, i+1));//[new Enemy()];
@@ -144,10 +139,11 @@ const allEnemies = [];
 const enemyLocation = [50, 150, 225];
 
 enemyLocation.forEach(function(locationY) {
-    enemy = new Enemy(0, locationY, 100 + Math.floor(Math.random() * 499));
+    enemy = new Enemy(0, locationY, 100 + Math.floor(Math.random() * 450));
     //enemy = new Enemy(Math.floor(Math.random() * 400), locationY, 200);
     allEnemies.push(enemy);
 });
+
 
 
 // This listens for key presses and sends the keys to your
@@ -190,125 +186,10 @@ document.addEventListener('keyup', function(e) {
 
 
 
-/*const Player = function() {
-    this.sprite = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 350;
+
     
-};
-
-Player.prototype.update = function(dt) {  
-};
-// Render the player
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-Player.prototype.update = function(dt) {
-};
-
-const allEnemies = [new Enemy()]; //[...Array(3)].map((_,i) => new Enemy(0, i+1));
-
-
-// Enemies our player must avoid
-const Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    
-    //this.speed = speed + Math.floor(Math.random() * enemySpeed); // the speed increases in states
-    this.sprite = 'images/enemy-bug.png';
-    this.x = 10;
-    this.y = 100;
-};
+     
 
 
 
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-
-
-let player = new Player();
-Player.prototype.handleInput = function(dt) {
-   /* switch(input) {
-        case 'left':
-            this.x = this.x > 0 ? this.x - 1 : this.x;
-            break;
-        case 'up':
-            this.y = this.y > 0 ? this.y - 1 : this.y;
-            break;
-        case 'right':
-            this.x = this.x < 4 ? this.x + 1 : this.y;
-            break;
-        case 'down':
-            this.y = this.y < 5 ? this.y + 1 : this.y;
-            break;
-        default:
-            break;
-    };*/
-
-
-
-
-
-
-
-/*
-Player.prototype.update = function(dt) {
-};
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-Player.prototype.update = function(dt) {
-};
-Player.prototype.handleInput = function(dt) {
-};*/
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-//const player = new Player();
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-/*document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
-
-    player.handleInput(allowedKeys[e.keyCode]);
-});
-};
-
-/*
-Player.prototype.handleInput = function(dt) {
-    switch(dt) {
-        case "up":
-        this.y -= 50;
-        break;
-        case "down":
-        this.y += 50;
-        break;
-        case "left":
-        this.x -= 50;
-        break;
-        case "right":
-        this.x += 50;
-        break;
-    };
-}
-}*/
