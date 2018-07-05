@@ -12,12 +12,7 @@
 <body>
     <h1>The Princess Heart Collection Game</h1>
     <h2 id="scoreTotal">Heart Total: <span id= "score"></span> of 10</h2>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
+    
 
 <div class="modal" id="beginGame" tabindex="-1" role="dialog">
     <div class="instructions" role="document">
@@ -28,13 +23,25 @@
             </button>
         </div>
         <div class="modal-body">
-        <p id="instructionsContent"><img src= "images/Heart.png" class="heart-image"> The Princess isn't feeling the love around town lately. Help the Princess collect hearts and dodge bugs to spread some Love on National Heart Day. Use the arrow keys to navigate the board. Collect 10 hearts to win the game. Watch Out! Running into a bug resets your heart total!</p>
+        <p id="instructionsContent"><img src= "images/Heart.png" class="heart-image"> The Princess isn't feeling the love around town lately. Each time the Princess makes a trip to the water she receives a heart to spread love around town. Help the Princess dodge bugs and collect hearts to spread some love to the people. Use the arrow keys to navigate the board. Collect 10 hearts to win the game. Watch Out! If you run into a bug they steal your heart(s) and you have to start over again!</p>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
     </div>
 </div>
 </div>
+
+<!--
+    <div id="popupModal" class="winModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Congratulations!</h3>
+        <p>You collected 10 hearts and helped the Princess spread Love. Can you do it again?</p>
+        <button class="replay">Replay</button>
+    </div>
+  </div>-->
+
+
 <!--
 <div class="alert alert-success" id="popupModal" role="alert">
     <h3 class="alert-heading">Congratulations!</h3>
@@ -57,28 +64,36 @@
     </div>
 </div>-->
 <!--
-<div class="modal" id ="popupModal" tabindex="-1" role="dialog">
+<div class="modal" id="popupModal" tabindex="-1" role="dialog">
     <div class="modal-content" role="document">
     <div class="modal-header">
             <h5 class="modal-title">Congratulations</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="Replay" data-dismiss="modal" aria-label="Play Again">
             <span aria-hidden="true">&times;</span>
             </button>
     </div>
     
     <div class="modal-body">
-            <p id="gameOver"><img src= "images/Heart.png" class="heart-image"> You collected 10 hearts and helped the Princess spread Love. Can you do it again?</p>
+            <p id="gameOver"><img src= "images/Heart.png" class="heart-image"> You collected 10 hearts and helped the Princess spread love. Can you do it again?</p>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Play Again</button>
         </div>
         </div>
     </div>
 </div> -->
+
 <!--
 <div class="popup">
     <div class="popupModal">
         <p class="popupText"></p><button class="close">Close</button>
     </div>
-</div>-->
+</div> -->
+<!--Script Tags-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
 </body>
 </html>

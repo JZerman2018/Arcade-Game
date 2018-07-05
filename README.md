@@ -1,6 +1,18 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Play Live Version
+Game play: The Princess isn't feeling the love around town lately. Each time the Princess makes a trip to the water she receives a heart to spread love around town. Help the Princess dodge bugs and collect hearts to spread some love to the people. Use the arrow keys to navigate the board. Collect 10 hearts to win the game. Watch Out! If you run into a bug they steal your heart(s) and you have to start over again!
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Play Download version
+Download or clone files from the repository via the clone/download button to a folder.
+Open the destination folder and open the index file in an online browser window. Offline play is not supported since some game functionality may not be available. Navigate the game board the same as the Live Version above.
+
+Dependencies:
+Starter code was provided by Udacity at https://github.com/udacity/frontend-nanodegree-arcade-game.
+JQuery 3.3.1
+Bootstrap 3.3.7
+Bootbox 4.4.0
+HTML
+CSS
+JavaScript
