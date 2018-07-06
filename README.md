@@ -9,6 +9,7 @@ Game play: The Princess isn't feeling the love around town lately. Each time the
 
 Play Download Version:
 
+Visit the gh-pages branch of the repository at https://github.com/JZerman2018/Arcade-Game/tree/gh-pages.
 Download or clone files from the repository via the clone/download button to a folder.
 Open the destination folder and open the index file in an online browser window. Offline play is not supported since some game functionality may not be available due to JavaScript and Bootstrap being CDNs (Content Delivery Networks). Navigate the game board the same as the Live Version above.
 
