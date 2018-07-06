@@ -1,7 +1,8 @@
 //Sets initial scores to 0
 let score = 0;
 document.getElementById('score').innerHTML = score;
-
+let popup = document.querySelector('.popup');
+let popupText = document.querySelector('.popupText');
 // Instruction Modal
 $(document).ready(function() {
     $('#beginGame').modal('show');
@@ -9,9 +10,13 @@ $(document).ready(function() {
 
 /*
 $(document).ready(function() {
-    $('#popupModal').modal('hide');
+    $('.popupModal').modal('hide');
 });*/
-
+function startGame() {
+    document.getElementById('score').innerHTML = score;
+    document.getElementById('score').innerHTML = "0";
+    score = 0;
+}
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -50,7 +55,23 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+/*
+function gameOver() {
+    if(score >= 10) {
+        popup.style.display = 'block'; 
+    }
+    
+    };
+    //document.getElementById('score').innerHTML = "0";
 
+/*
+function gameOver() {
+    if(score <= 10) {
+        popup.style.display = 'block';
+        popupText.textContent = popupText.textContent = 'You collected 10 hearts and helped the Princess spread love. Can you do it again?';
+    init();
+    }
+}*/
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -77,33 +98,50 @@ Player.prototype.update = function() {
        this.x = 0;
    };
    
-   
-
-//One point added to heart total when player reaches top of canvas
+   //One point added to heart total when player reaches top of canvas
    if(this.y <= 0) {
     this.x = 200;
     this.y = 400;
     score++;
     document.getElementById('score').innerHTML = score;
-     if(score >= 10) {
+    if(score >= 10) {
+    popup.style.display = 'block'; 
+   };
+   //document.getElementById('score').innerHTML = "0";
+}
+};
+
+   
+
+
+
+
+    
+        //popupText.textContent = popupText.textContent = 'You collected 10 hearts and helped the Princess spread love. Can you do it again?';
+    
+    
+    
+     /*if(score >= 10) {
        bootbox.alert({
             message: "Congratulations! You collected 10 hearts and helped the Princess spread love. Can you do it again?",
             className: 'bb-alternate-modal',
        });    
-        document.getElementById('score').innerHTML = "0"; 
-     }
-    }
-};
+        //document.getElementById('score').innerHTML = "0"; 
+     
+     //gameOver();
+    };*/
     
-   
-
-/*
-//let close = document.querySelector('.close');
+let close = document.querySelector('.close');
 $('.close').on('click', (function() {
-    $('.popupModal').hide();
-   
-}));*/
- 
+    $('.popup').hide();
+   startGame();
+}));
+
+let playAgain = document.querySelector('.playAgain');
+$('.playAgain').on('click', (function() {
+	$('.popup').hide(); 
+startGame();
+}));
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -124,7 +162,17 @@ Player.prototype.handleInput = function(input) {
     if(input === 'down' && this.y < 400) {
         this.y += 40;
     }
+    
 };
+
+/*
+function gameOver() {
+    if(score >= 10) {
+        popup.style.display = 'block';
+        score = 0;
+    }
+    
+}*/
 /*
 // Movement around the board with arrow keys
 Player.prototype.handleInput = function(input) {
@@ -153,7 +201,7 @@ let player = new Player(200, 400, 60);
 //create the array for enemies
 //let allEnemies = [...Array(3)].map((_,i) => new Enemy(0, i+1));//[new Enemy()];
 const allEnemies = [];
-const enemyLocation = [50, 50, 150, 225];
+const enemyLocation = [50, 150, 225];
 
 enemyLocation.forEach(function(locationY) {
     //enemy = new Enemy(0, locationY, 100 + Math.floor(Math.random() * 250));
@@ -174,30 +222,6 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-});
     
-
-/*
-// Modal information 
-const modal = document.querySelector('.winModal');
-
-function gameOver() {
-    if(score >= 10) {
-        modal.classList.toggle('hide');
-    }
-}
-
-// Play Again
-const replay = document.querySelector('.replay');
-
-    replay.addEventListener('click', function() {
-        location.reload(true);
-    });
-
-   //Close the modal
-   const closeModal = document.querySelector('.close');
-   
-   closeModal.addEventListener('click', function() {
-       modal.style.display = 'none';
-   });
-}*/
+});
+  

@@ -1,6 +1,15 @@
-body {
+
+html, body {
     text-align: center;
     font-family: Fjalla One;
+    background: linear-gradient(160deg, #fee 0%, white 100%);
+    color: #e9c;
+    
+}
+
+h1, #scoreTotal {
+    text-shadow: 2px 2px black;
+    font-size: 35px;
 }
 
 .modal-title {
@@ -41,31 +50,50 @@ body {
     float:left;
 }
 
-header {
-    display: block;
-    font-size: 22px;
-    
-}
+
 button {
     background-color: #e9c;
     font-weight: bold;
     color: white;
 }
 
-/*
-#popupModal {
+
+.popup {
     display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 25px;
-    margin-top: 50px;
+    position: relative;
     
-    
-    width: 60%;
-    height: 60%;
-    font-size: 22px;
-    align-content: center;
-    background-color: #fee;
+    background-color: #ebc;
     color: #e9c;
+    width: 50%;
+    height: 30%;
+    margin: auto;
+    padding: 20px;
+    font-size: 35px;
+    
+    
+    font-size: 33px;
+    text-shadow: 2px solid black;
+    border-radius: 10px;
 }
+
+.popupText {
+    align-items: center;
+    background-color: #ebc;
+    color: black;
+	margin: 15% auto;
+	padding: 20px;
+	border: 2px solid white;
+	border-radius: 20px;
+	width: 85%;
+	font-size: 22px;
+    text-shadow: 2px 2px white;
+}
+
+.playAgain {
+    background-color: #ebc;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px white;
+}
+
 
