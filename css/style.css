@@ -1,99 +1,74 @@
 
 html, body {
-    text-align: center;
-    font-family: Fjalla One;
-    background: linear-gradient(160deg, #fee 0%, white 100%);
-    color: #e9c;
-    
+	text-align: center;
+	font-family: Fjalla One;
+	background: linear-gradient(160deg, #fee 0%, white 100%);
+	color: #e9c;
 }
-
 h1, #scoreTotal {
-    text-shadow: 2px 2px black;
-    font-size: 35px;
+	text-shadow: 2px 2px black;
+	font-size: 35px;
 }
-
 .modal-title {
-    font-size: 40px;
-    text-shadow: 2px 2px black;
+	font-size: 40px;
+	text-shadow: 2px 2px black;
 }
-
 .modal-header {
-    background-color: #fee;
-    color: #e9c;
-    width: 60%;
-    margin: auto;
-    padding: 20px;
-    font-size: 35px;
-    font-weight: bold;
-    display: block;
-    
-    
+	background-color: #fee;
+	color: #e9c;
+	width: 60%;
+	margin: auto;
+	padding: 20px;
+	font-size: 35px;
+	font-weight: bold;
+	display: block;
 }
-
-/*.modal-text {
-
-}*/
-
 .modal-body {
-    position: relative;
-    background-color: #fee;
-    color: black;
-    width: 60%;
-    margin: auto;
-    padding: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    
+	position: relative;
+	background-color: #fee;
+	color: black;
+	width: 60%;
+	margin: auto;
+	padding: 20px;
+	font-size: 16px;
+	font-weight: bold;
 }
-
 .heart-image {
-    float:left;
+	float: left;
 }
-
-
 button {
-    background-color: #e9c;
-    font-weight: bold;
-    color: white;
+	background-color: #e9c;
+	font-weight: bold;
+	color: white;
 }
-
-
 .popup {
-    display: none;
-    position: relative;
-    
-    background-color: #ebc;
-    color: #e9c;
-    width: 50%;
-    height: 30%;
-    margin: auto;
-    padding: 20px;
-    font-size: 35px;
-    
-    
-    font-size: 33px;
-    text-shadow: 2px solid black;
-    border-radius: 10px;
+	display: none;
+	position: relative;
+	background-color: #ebc;
+	color: #e9c;
+	width: 50%;
+	height: 30%;
+	margin: auto;
+	padding: 20px;
+	font-size: 22px;
+	font-size: 33px;
+	text-shadow: 2px solid black;
+	border-radius: 10px;
 }
-
 .popupText {
-    align-items: center;
-    background-color: #ebc;
-    color: black;
+	align-items: center;
+	background-color: #ebc;
+	color: black;
 	margin: 15% auto;
 	padding: 20px;
 	border: 2px solid white;
 	border-radius: 20px;
 	width: 85%;
 	font-size: 22px;
-    text-shadow: 2px 2px white;
+	text-shadow: 2px 2px white;
 }
-
 .playAgain {
-    background-color: #ebc;
-    font-weight: bold;
-    color: black;
-    text-shadow: 2px 2px white;
+	background-color: #ebc;
+	color: #e9c;
+	text-shadow: 2px 2px black;
 }
-
-

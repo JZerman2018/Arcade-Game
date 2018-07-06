@@ -3,6 +3,8 @@ Frontend-Nanodegree-Arcade-Game
 
 Play Live Version
 
+Live Version can be played here: https://jzerman2018.github.io/Arcade-Game/
+
 Game play: The Princess isn't feeling the love around town lately. Each time the Princess makes a trip to the water she receives a heart to spread love around town. Help the Princess dodge bugs and collect hearts to spread some love to the people. Use the arrow keys to navigate the board. Collect 10 hearts to win the game. Watch Out! If you run into a bug they steal your heart(s) and you have to start over again!
 
 Play Download Version:
